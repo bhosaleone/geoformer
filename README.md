@@ -5,6 +5,7 @@
   <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg" alt="PyTorch 2.0+"></a>
   <a href="https://github.com/Z3Prover/z3"><img src="https://img.shields.io/badge/Microsoft%20Z3-6%2F6%20UNSAT%20Verified-brightgreen.svg" alt="Z3 Prover"></a>
   <a href="https://pytest.org/"><img src="https://img.shields.io/badge/PyTest-18%2F18%20Passing%20(100%25)-success.svg" alt="PyTest"></a>
+  <a href="https://github.com/bhosaleone/TAC"><img src="https://img.shields.io/badge/Sister%20Repo-bhosaleone%2FTAC-blueviolet.svg" alt="Sister Repo: TAC"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
   <a href="https://www.kaggle.com/competitions/arc-prize-2026-paper-track"><img src="https://img.shields.io/badge/ARC%20Prize%202026-Paper%20Track-purple.svg" alt="ARC Prize 2026"></a>
 </p>
@@ -188,6 +189,19 @@ All figures are rendered in both high-resolution PNG and vector SVG on pure whit
 - **[Figure 9: Decisive Zero-Shot Transitive Generalization Breakthrough](diagrams/figure_9_decisive_transitive_generalization.png)**
 - **[Figure 10: Neuromorphic Memristor Crossbar Hardware & Energy Audit](diagrams/figure_10_memristor_crossbar_robustness_and_energy.png)**
 - **[Figure 11: Tier 5 Deep Transitive Reasoning Scaling ($k=2, 3, 4$ Hops)](diagrams/figure_11_tier5_deep_transitive_scaling.png)**
+
+---
+
+## 🔗 Sister Architecture: Continuous Thermodynamic Foundations
+
+GeoFormer's continuous relaxation dynamics and geometric state-space projection build upon foundational continuous thermodynamic principles formalized in our companion repository:
+
+👉 **[bhosaleone/TAC: Turing-TAC Coupler](https://github.com/bhosaleone/TAC)**  
+*Continuous Thermodynamic Relaxation & SMT-Verified Dynamical Systems*
+
+- **Formal Logic Foundations:** 5 core mathematical theorems (Lyapunov monotonic free-energy dissipation, dimension-independent $O(1)$ spectral relaxation, and bistable bifurcation potentials) formally verified using the **Microsoft Z3 SMT Theorem Prover**.
+- **Unitary State-Space Evolution:** Simulates unitary 10,000-qubit entanglement entropy without exponential memory explosion ($< 2.22 \times 10^{-16}$ trace deviation in $1.8\text{s}$), producing the symmetric Page curve.
+- **Epistemological Treatise:** Includes the foundational essay *[The Cat Is Out of the Box: How TAC Challenges the Cultural Legacy of Schrödinger's Uncertainty](https://github.com/bhosaleone/TAC/blob/main/The_Cat_Is_Out_of_the_Box.md)*.
 
 ---
 

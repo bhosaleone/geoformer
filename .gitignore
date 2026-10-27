@@ -64,3 +64,6 @@ venv.bak/
 
 # Logs
 *.log
+
+# Nested clone
+TAC/
