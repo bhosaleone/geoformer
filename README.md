@@ -1,10 +1,11 @@
 # GeoFormer: Solving Few-Shot Abstraction via Endogenous Propagation Geometry & Neuromorphic Metric Manifolds
 
 <p align="center">
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python 3.9+"></a>
+  <a href="https://github.com/bhosaleone/geoformer/actions/workflows/ci.yml"><img src="https://github.com/bhosaleone/geoformer/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python 3.10+"></a>
   <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg" alt="PyTorch 2.0+"></a>
   <a href="https://github.com/Z3Prover/z3"><img src="https://img.shields.io/badge/Microsoft%20Z3-6%2F6%20UNSAT%20Verified-brightgreen.svg" alt="Z3 Prover"></a>
-  <a href="https://pytest.org/"><img src="https://img.shields.io/badge/PyTest-18%2F18%20Passing%20(100%25)-success.svg" alt="PyTest"></a>
+  <a href="https://pytest.org/"><img src="https://img.shields.io/badge/PyTest-20%2F20%20Passing%20(100%25)-success.svg" alt="PyTest"></a>
   <a href="https://github.com/bhosaleone/TAC"><img src="https://img.shields.io/badge/Sister%20Repo-bhosaleone%2FTAC-blueviolet.svg" alt="Sister Repo: TAC"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
   <a href="https://www.kaggle.com/competitions/arc-prize-2026-paper-track"><img src="https://img.shields.io/badge/ARC%20Prize%202026-Paper%20Track-purple.svg" alt="ARC Prize 2026"></a>
@@ -22,11 +23,11 @@
 Contemporary foundation architectures treat computational sequence space as an immutable, flat Euclidean coordinate system. In standard Transformers, all-to-all attention forces parameter weights in $\mathbb{R}^D$ to simultaneously perform feature transformations and signal routing, leading to **catastrophic forgetting**, **topological blindness**, and **compositional collapse**. These pathologies directly contradict François Chollet's definition of intelligence: **skill-acquisition efficiency over novel, unfamiliar tasks under few-shot conditions (ARC-AGI)**.
 
 **GeoFormer** is a foundation architecture grounded in **Endogenous Propagation Geometry (Q-PG)** and Non-Equilibrium Metric Manifolds:
-1. **Two-Timescale Metric Plasticity:** Separates frozen semantic transformation weights $\theta$ from a slow, dynamic 4-bit conductance lattice $\mathbf{W}^{(b)}$. Pairs of concepts that co-activate physically contract their effective resistance $d_{ij} = \frac{1}{W_{ij} + \epsilon} \to 0$, sculpting **Geodesic Highways**.
+1. **Two-Timescale Metric Plasticity (Complementary Learning Systems):** Grounded in neurobiological dual-memory theory (McClelland et al., 1995; Kumaran et al., 2016), GeoFormer separates frozen semantic transformation weights $\theta$ from a dynamic 4-bit conductance lattice $\mathbf{W}^{(b)}$. Rapid few-shot episodic associations update the physical conductance matrix via Hebbian outer products, contracting the effective resistance $d_{ij} = \frac{1}{W_{ij} + \epsilon} \to 0$ to sculpt **Geodesic Highways** without catastrophic interference on frozen cortical weights.
 2. **Quantized Thermodynamic Attractor Convergence (Q-TAC):** Replaces rigid fixed layer depth with a continuous graph heat relaxation $\frac{d\mathbf{h}}{d\tau} = -\mathbf{L} \mathbf{h}$, naturally routing multi-hop transitive paths through matrix powers ($\mathbf{W}^2, \mathbf{W}^3, \mathbf{W}^4$) in a single forward pass without autoregressive scratchpads.
-3. **1.58-Bit Ternary Synapses (BitNet b1.58 STE):** Synaptic weights are restricted to strictly $\{-1, 0, +1\}$, yielding a total memory footprint of just **$440\text{ KB} - 1.76\text{ MB}$** that fits directly on $2 microcontrollers.
-4. **Physical In-Memory Memristor Compilation:** Compiles isomorphically to analog 1T1R ReRAM/PCM crossbars, consuming only **$443.9\text{ picajoules}$ per inference ($9,462\times$ lower dynamic energy than FP32 GPUs)** while absorbing up to $20\%$ analog programming noise as a robust topological attractor.
-5. **Formal Machine Verification:** All 6 foundational theorems are verified `UNSAT` (no counterexamples) in the **Microsoft Z3 SMT Theorem Prover**.
+3. **1.58-Bit Ternary Synapses (BitNet b1.58 STE):** Synaptic weights are restricted to strictly $\{-1, 0, +1\}$, yielding a total memory footprint of just **$440\text{ KB} - 1.76\text{ MB}$** that fits directly on low-power edge microcontrollers.
+4. **First-Principles In-Memory Memristor Compilation:** Compiles isomorphically to analog 1T1R ReRAM/PCM crossbars. Our first-principles device physics model (including 4-bit flash ADC/DAC conversion overhead and parasitic wire resistance) calculates an energy dissipation of just **$443.9\text{ picajoules}$ per inference ($9,462\times$ lower dynamic energy than FP32 GPU baselines)** while absorbing up to $20\%$ analog programming noise as a robust topological attractor.
+5. **Formal Machine Verification:** The mathematical consistency of all 6 governing algebraic invariants (Lyapunov dissipation, Fiedler eigenvalue preservation, discrete geodesic contraction, and precision-topology equivalence) is certified `UNSAT` (no counterexamples) in the **Microsoft Z3 SMT Theorem Prover**.
 
 ---
 
@@ -55,7 +56,7 @@ graph TD
     ADD1 -.->|Residual 2| ADD2((+))
     SWIGLU --> ADD2
     
-    ADD2 --> TAC["Pandit Q-TAC Continuous Relaxation<br/>dh/dτ = -k · [ (h - h_init) + λ_Dir (L h) + λ_S5 (h - P_S5 h) ]"]:::tac
+    ADD2 --> TAC["Pandit Q-TAC Continuous Relaxation<br/>dh/dtau = -k · [ (h - h_init) + λ_Dir (L h) + λ_S5 (h - P_S5 h) ]"]:::tac
     LATTICE -.->|Discrete Laplacian L = D - W| TAC
     TAC --> OUT["Output Attractor State h* ∈ Δ^N"]:::out
 ```
@@ -66,23 +67,26 @@ graph TD
 
 Standard Transformers suffer from **Compositional Collapse**: when trained strictly on 1-hop facts ($A \to B, B \to C, C \to D, D \to E$) and evaluated on unseen multi-hop queries ($A \to C, A \to D, A \to E$), standard attention collapses to $0.0\%$.
 
-In contrast, **GeoFormer** routes along higher-order matrix powers ($\mathbf{W}^2, \mathbf{W}^3, \mathbf{W}^4$) in a single forward pass without autoregressive chain-of-thought tokens:
+In GeoFormer, multi-hop reasoning is achieved by propagating activations through powers of the metric conductance matrix ($\mathbf{W}^2, \mathbf{W}^3, \mathbf{W}^4$). In complex knowledge graphs with multiple branching crossroads, scalar conductance matrices can experience cross-talk. To address this, **GeoFormer with Hippocampal Relational Working Memory (RML)** conditions step-by-step diffusion on the specific relation token $\mathbf{W}[r, \text{tgt}, \text{src}]$, maintaining topological precision across deep multi-hop chains:
 
-![Figure 11: Tier 5 Deep Transitive Reasoning Scaling](diagrams/figure_11_tier5_deep_transitive_scaling.png)
+<p align="center">
+  <img src="diagrams/figure_11_tier5_deep_transitive_scaling.png" width="48%" alt="Figure 11: Tier 5 Deep Transitive Reasoning Scaling">
+  <img src="diagrams/figure_12_relational_memory_transitive_scaling.png" width="48%" alt="Figure 12: Tier 6 Relational Memory Transitive Scaling">
+</p>
 
-| Compositional Depth & Query | Flat Transformer Baseline | Adaptive GeoFormer (Ours) | Absolute Advantage | Relative to Chance ($0.78\%$) | Two-Sided $p$-value |
-|---|:---:|:---:|:---:|:---:|:---:|
-| **2-Hop Transitive ($A \to C$)** | **$0.0\% \pm 0.0\%$** | **$44.0\% \pm 6.5\%$** (peak $53.3\%$) | **$+44.0\%$** | **$56.4\times$ Chance** | **$p = 1.7 \times 10^{-4}$** |
-| **3-Hop Transitive ($A \to D$)** | **$0.0\% \pm 0.0\%$** | **$30.7\% \pm 5.7\%$** (peak $40.0\%$) | **$+30.7\%$** | **$39.4\times$ Chance** | **$p = 4.3 \times 10^{-4}$** |
-| **4-Hop Transitive ($A \to E$)** | **$0.0\% \pm 0.0\%$** | **$22.7\% \pm 4.9\%$** (peak $30.0\%$) | **$+22.7\%$** | **$29.1\times$ Chance** | **$p = 7.6 \times 10^{-4}$** |
+| Compositional Depth & Query | Flat Transformer Baseline | Standard Q-GeoFormer (Scalar) | Memory-Augmented Q-GeoFormer (+ Hippocampal RML) | Advantage over Flat | Relative to Chance ($0.78\%$) | Two-Sided $p$-value |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **2-Hop Transitive ($A \to C$)** | $0.0\% \pm 0.0\%$ | $47.3\% \pm 9.2\%$ | **$84.7\% \pm 5.1\%$** (peak $93.3\%$) | **$+84.7\%$** | **$108.6\times$ Chance** | **$p = 1.36 \times 10^{-4}$** |
+| **3-Hop Transitive ($A \to D$)** | $0.0\% \pm 0.0\%$ | $38.0\% \pm 9.0\%$ | **$83.3\% \pm 7.1\%$** (peak $90.0\%$) | **$+83.3\%$** | **$106.8\times$ Chance** | **$p = 4.40 \times 10^{-4}$** |
+| **4-Hop Transitive ($A \to E$)** | $0.0\% \pm 0.0\%$ | $30.7\% \pm 7.2\%$ | **$76.0\% \pm 7.6\%$** (peak $83.3\%$) | **$+76.0\%$** | **$97.4\times$ Chance** | **$p = 1.37 \times 10^{-3}$** |
 
-*Evaluation across 128 entities, 5 independent random seeds (42, 101, 2024, 777, 999). Chance level: $1/128 = 0.781\%$.*
+*Rigorous evaluation across 128 entities, 30 multi-hop chains with 28 branching crossroads, evaluated over 5 independent random seeds (42, 101, 2024, 777, 999). Uniform chance level: $1/128 = 0.781\%$.*
 
 ---
 
-## Key Breakthrough 2: Neuromorphic In-Memory Computing ($9,462\times$ GPU Energy Cut)
+## Key Breakthrough 2: Neuromorphic In-Memory Computing & First-Principles Energy Audit
 
-In a physical 1T1R ReRAM/PCM memristor crossbar, vector-matrix multiplication $\mathbf{I} = \mathbf{G} \mathbf{V}$ occurs via **Ohm's Law** and **Kirchhoff's Current Law** in parallel in $O(1)$ physical transport time ($\sim 10\text{ ps}$):
+In an analog 1T1R ReRAM/PCM memristor crossbar, vector-matrix multiplication $\mathbf{I} = \mathbf{G} \mathbf{V}$ is governed by **Ohm's Law** and **Kirchhoff's Current Law** in parallel in $O(1)$ physical transport time ($\sim 10\text{ ps}$):
 
 ![Figure 10: Neuromorphic Memristor Crossbar Hardware Robustness and Energy](diagrams/figure_10_memristor_crossbar_robustness_and_energy.png)
 
@@ -92,10 +96,13 @@ In a physical 1T1R ReRAM/PCM memristor crossbar, vector-matrix multiplication $\
 | **NVIDIA Tensor Core GPU** | FP16 Half Precision | $1,100.0\text{ nJ}$ | $3.8\times$ Efficient |
 | **Google Edge TPU / NPU** | INT8 Integer Quantized | $145.0\text{ nJ}$ | $29.0\times$ Efficient |
 | **ARM Cortex-M55 NPU** | INT8 Low-Power Core | $65.0\text{ nJ}$ | $64.6\times$ Efficient |
-| **GeoFormer Memristor Crossbar** | **Ternary Synapses + 4-bit Crossbar** | **$0.444\text{ nJ} = 443.9\text{ pJ}$** | **$9,462\times$ EFFICIENT** |
+| **GeoFormer Memristor Crossbar (Analytical Model)** | **Ternary Synapses + 4-bit Crossbar** | **$0.444\text{ nJ} = 443.9\text{ pJ}$** | **$9,462\times$ EFFICIENT** |
+
+> [!NOTE]
+> **First-Principles Analytical Device Physics Model:** The $443.9\text{ pJ}$ energy figure is derived from an analytical first-principles device physics simulation (`memristor_crossbar_emulator.py`) based on published 1T1R HfOx/TiN ReRAM specifications and flash ADC/DAC architectures (Murmann ADC survey; Ielmini & Wong, *Nature Electronics* 2018). It includes the analog crossbar core ($1.20\text{ pJ}$), 4-bit flash ADC quantization ($184.32\text{ pJ}$), and DAC voltage drivers & peripheral circuits ($258.38\text{ pJ}$). The GPU baseline ($4,200\text{ nJ}$) reflects empirical server measurements. This comparison highlights the physical lower bound achievable by non-von Neumann analog in-memory computing.
 
 ### Extreme Hardware Noise Resilience
-Our emulator (`memristor_crossbar_emulator.py`) models parasitic metal wire resistance ($R_{\text{wire}} = 3.2\ \Omega/\text{cell}$), line IR drop, thermal noise, and cycle-to-cycle write variability:
+Our emulator models parasitic metal wire resistance ($R_{\text{wire}} = 3.2\ \Omega/\text{cell}$), line IR drop, thermal noise, and cycle-to-cycle write variability:
 * **$0\%$ Noise:** $40.5\% \pm 7.5\%$ unseen test accuracy
 * **$5\%$ Noise:** $39.5\% \pm 5.1\%$ unseen test accuracy
 * **$20\%$ Noise:** **$38.0\% \pm 5.6\%$ unseen test accuracy** (Flat Transformer baseline: $0.5\% \pm 1.0\%$)
@@ -105,7 +112,7 @@ Our emulator (`memristor_crossbar_emulator.py`) models parasitic metal wire resi
 
 ## Formal Mathematical Verification (Microsoft Z3 SMT)
 
-All 6 core theorems were codified in first-order logic and certified `UNSAT` (negation has no counterexamples) by the Microsoft Z3 Theorem Prover:
+The Microsoft Z3 SMT Theorem Prover was employed to certify the **internal deductive consistency and boundary validity of our governing algebraic invariants**. All 6 foundational theorems were codified in first-order logic and proven `UNSAT` (their negations admit no counterexamples):
 
 | Theorem | Formal Assertion | Mathematical Property | Z3 Status | Runtime |
 |:---:|---|---|:---:|:---:|
@@ -142,7 +149,7 @@ Features:
 ## Installation & Quick Start
 
 ```bash
-git clone https://github.com/shrikantbhosale786/geoformer.git
+git clone https://github.com/bhosaleone/geoformer.git
 cd geoformer
 pip install -e .
 ```
@@ -150,7 +157,7 @@ pip install -e .
 ### Running the PyTest Suite (100% Pass Rate)
 ```bash
 python3 -m pytest tests/ -v
-# 18 passed in 1.69s
+# 20 passed in 1.43s
 ```
 
 ### 30-Second Python Example

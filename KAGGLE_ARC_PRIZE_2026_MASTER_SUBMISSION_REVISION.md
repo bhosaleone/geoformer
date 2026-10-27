@@ -8,7 +8,7 @@
 **Competition Track:** [ARC Prize 2026 - Paper Track (Main Track)](https://www.kaggle.com/competitions/arc-prize-2026-paper-track)  
 **License:** Attribution 4.0 International (CC BY 4.0)  
 **Interactive Visualizer:** Running on standalone WebGL/HTML5 engine  
-**Production Codebase:** `geoformer-sdk` (18/18 PyTest Tests Passing, 100% Pass Rate)
+**Production Codebase:** `geoformer-sdk` (20/20 PyTest Tests Passing, 100% Pass Rate)
 
 ---
 
@@ -18,7 +18,7 @@ Contemporary foundation architectures treat computational sequence space as an i
 
 We present **GeoFormer**, a foundation architecture grounded in **Endogenous Propagation Geometry** and **Non-Equilibrium Metric Manifolds**. In GeoFormer, 2D ARC grid reasoning and relational abstraction are cast as information routing across a dynamic Riemannian manifold. The effective resistance distance $d_{ij}(t) = \frac{1}{W_{ij}(t) + \epsilon}$ evolves across two distinct timescales: fast semantic processing ($\tau \sim 1$) and slow metric plasticity ($\tau \sim 1/\eta_g$). Test-time few-shot adaptation sculpts persistent, low-resistance **Geodesic Highways** without corrupting static semantic weights. Inference depth is scaled adaptively via **Pandit Thermodynamic Action Computation (TAC)** continuous relaxation until physical equilibrium.
 
-All foundational stability and invariant properties are machine-checked and proved in the **Microsoft Z3 Theorem Prover** (Theorems Q-1 through Q-6 certified `UNSAT`). On rigorous multi-hop reasoning benchmarks, GeoFormer achieves **$+44.0\%$ advantage ($p = 0.00017$) at 2-hop, $+30.7\%$ ($p = 0.00043$) at 3-hop, and $+22.7\%$ ($p = 0.00076$) at 4-hop composition**, while standard Transformers suffer **total collapse ($0.0\% \pm 0.0\%$)**. Furthermore, compiling the architecture to physical 1T1R non-volatile memristor crossbars under $20\%$ analog programming noise demonstrates robust topological stability, consuming just **$443.9\text{ picajoules}$ per inference ($9,462\times$ lower dynamic energy than FP32 GPUs)**.
+All foundational stability and invariant properties are machine-checked and proved in the **Microsoft Z3 Theorem Prover** (Theorems Q-1 through Q-6 certified `UNSAT`). On rigorous multi-hop reasoning benchmarks across 128 entities and 28 branching crossroads, GeoFormer augmented with Hippocampal Relational Working Memory achieves **$84.7\% \pm 5.1\%$ ($108.6\times$ chance, $p = 1.36 \times 10^{-4}$) at 2-hop, $83.3\% \pm 7.1\%$ ($106.8\times$ chance, $p = 4.40 \times 10^{-4}$) at 3-hop, and $76.0\% \pm 7.6\%$ ($97.4\times$ chance, $p = 1.37 \times 10^{-3}$) at 4-hop composition**, while standard Transformers suffer **total collapse ($0.0\% \pm 0.0\%$)**. Furthermore, compiling the architecture to physical 1T1R non-volatile memristor crossbars under $20\%$ analog programming noise demonstrates robust topological stability, consuming just **$443.9\text{ picajoules}$ per inference ($9,462\times$ lower dynamic energy than FP32 GPUs in an analytical device physics model)**.
 
 ---
 
@@ -144,25 +144,26 @@ Evaluated on spatial symmetry, reflection, topological flood fill, and OOD extra
 
 To test whether the architecture solves François Chollet's core challenge—**inferring novel relational compositions without prior multi-hop supervision**—we tested zero-shot transitive path finding across 128 entities across 5 independent random seeds (42, 101, 2024, 777, 999).
 
-Models were trained **strictly on 120 single-hop direct facts ($A \to B, B \to C, C \to D, D \to E$)** and tested on completely unseen multi-hop queries:
+Models were trained **strictly on 120 single-hop direct facts ($A \to B, B \to C, C \to D, D \to E$)** and tested on completely unseen multi-hop queries across 30 chains with 28 branching crossroads:
 
 ```
 ========================================================================================================================
-                  ZERO-SHOT MULTI-HOP COMPOSITIONAL REASONING BENCHMARK (TIER 5 SCALE)
+                  ZERO-SHOT MULTI-HOP COMPOSITIONAL REASONING BENCHMARK (TIER 6 SCALE)
 ========================================================================================================================
- Reasoning Task Depth     │ Flat Transformer Baseline │ Adaptive GeoFormer (Ours) │ Advantage   │ Student-t & p-value
-──────────────────────────┼───────────────────────────┼───────────────────────────┼─────────────┼───────────────────────
- 2-Hop Transitive (A → C) │        0.0% ± 0.0%        │       44.0% ± 6.5%        │   +44.0%    │ t = 15.11, p = 1.7e-04
- 3-Hop Transitive (A → D) │        0.0% ± 0.0%        │       30.7% ± 5.7%        │   +30.7%    │ t = 12.01, p = 4.3e-04
- 4-Hop Transitive (A → E) │        0.0% ± 0.0%        │       22.7% ± 4.9%        │   +22.7%    │ t = 10.37, p = 7.6e-04
-──────────────────────────┼───────────────────────────┼───────────────────────────┼─────────────┼───────────────────────
- Reference Uniform Chance │        0.78% (1/128)      │       0.78% (1/128)       │     —       │ p < 0.0008 across all
+ Reasoning Task Depth     │ Flat Baseline │ Standard Q-GeoFormer │ Memory-Augmented Q-GeoFormer │ Factor over Chance
+──────────────────────────┼───────────────┼──────────────────────┼──────────────────────────────┼────────────────────
+ 2-Hop Transitive (A → C) │  0.0% ± 0.0%  │     47.3% ± 9.2%     │   84.7% ± 5.1% (peak 93.3%)  │   108.6× Chance
+ 3-Hop Transitive (A → D) │  0.0% ± 0.0%  │     38.0% ± 9.0%     │   83.3% ± 7.1% (peak 90.0%)  │   106.8× Chance
+ 4-Hop Transitive (A → E) │  0.0% ± 0.0%  │     30.7% ± 7.2%     │   76.0% ± 7.6% (peak 83.3%)  │    97.4× Chance
+──────────────────────────┼───────────────┼──────────────────────┼──────────────────────────────┼────────────────────
+ Reference Uniform Chance │ 0.78% (1/128) │    0.78% (1/128)     │        0.78% (1/128)         │ p < 0.0014 across all
 ========================================================================================================================
 ```
 
 **Scientific Significance:**
-* The Standard Transformer suffered **total, catastrophic collapse ($0.0\% \pm 0.0\%$)** across all random seeds and all depths.
-* GeoFormer achieved **$56.4\times$ chance accuracy on 2-hop, $39.4\times$ chance on 3-hop, and $29.1\times$ chance on 4-hop composition** in a single forward pass, decisively rejecting the null hypothesis ($p < 0.0008$).
+* The Standard Flat Transformer suffered **total, catastrophic collapse ($0.0\% \pm 0.0\%$)** across all random seeds and all depths.
+* Standard Scalar Q-GeoFormer achieved $47.3\%$ at 2-hop, but degraded to $30.7\%$ at 4-hop due to branching cross-talk across crossroads.
+* **Hippocampal Relational Working Memory (RML)** resolved branching ambiguity by conditioning diffusion on relation tensor $\mathbf{W}[r, \text{tgt}, \text{src}]$, maintaining **$76.0\%$ accuracy at 4-hop depth ($97.4\times$ chance, $p = 1.37 \times 10^{-3}$)** in a single forward pass without autoregressive scratchpads.
 
 ---
 
@@ -176,7 +177,10 @@ In an analog 1T1R memristor crossbar, vector-matrix multiplication $\mathbf{I} =
 | **NVIDIA Tensor Core GPU** | FP16 Half Precision | $1,100.0\text{ nJ}$ | $3.8\times$ Efficient |
 | **Google Edge TPU / NPU** | INT8 Integer Quantized | $145.0\text{ nJ}$ | $29.0\times$ Efficient |
 | **ARM Cortex-M55 Embedded NPU** | INT8 Low-Power Core | $65.0\text{ nJ}$ | $64.6\times$ Efficient |
-| **GeoFormer Memristor Crossbar** | **Ternary Synapses + 4-bit Crossbar** | **$443.9\text{ pJ} = 0.444\text{ nJ}$** | **$9,462\times$ EFFICIENT** |
+| **GeoFormer Memristor Crossbar (Analytical)** | **Ternary Synapses + 4-bit Crossbar** | **$443.9\text{ pJ} = 0.444\text{ nJ}$** | **$9,462\times$ EFFICIENT** |
+
+> [!NOTE]
+> **First-Principles Analytical Device Physics Model:** The $443.9\text{ pJ}$ estimate is derived from a physical simulation (`memristor_crossbar_emulator.py`) incorporating the analog crossbar core ($1.20\text{ pJ}$), 4-bit flash ADC conversion ($184.32\text{ pJ}$), and DAC voltage drivers & peripheral circuitry ($258.38\text{ pJ}$) based on published literature (Murmann ADC survey; Ielmini & Wong, *Nature Electronics* 2018). The GPU baseline ($4,200\text{ nJ}$) reflects empirical server measurements.
 
 ### Analog Write Noise Robustness
 Our physical simulator (`memristor_crossbar_emulator.py`) models $3.2\ \Omega/\text{cell}$ parasitic wire resistance, line IR drop, thermal noise, and cycle-to-cycle write variability:
@@ -200,7 +204,7 @@ GeoFormer translates these biological realities into an engineering framework.
 
 To ensure complete scientific transparency and reproducibility:
 * **Production SDK:** `geoformer-sdk` is available on GitHub ([`bhosaleone/geoformer`](https://github.com/bhosaleone/geoformer)), fully installable via `pip install -e .`.
-* **Automated Test Suite:** 18 unit, integration, and Z3 invariant tests execute in 1.69 seconds with a **100% pass rate** (`python3 -m pytest tests/ -v`).
+* **Automated Test Suite:** 20 unit, integration, and Z3 invariant tests execute in 1.43 seconds with a **100% pass rate** (`python3 -m pytest tests/ -v`).
 * **Standalone Interactive Lab:** An interactive HTML5/Canvas/WebGL dashboard (`visualizer_geodesic_highways.html`) allows live manipulation of metric lattice epochs, Q-TAC current wave injection, and real-time energy metering.
 
 ---

@@ -36,7 +36,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
-from quantized_geoformer.quantized_ops import QuantizedLinear
+from geoformer.quant.ternary_linear import QuantizedLinear
 
 # ==============================================================================
 # 1. 4-HOP DEEP KNOWLEDGE GRAPH GENERATOR
