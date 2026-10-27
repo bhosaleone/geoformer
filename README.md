@@ -208,4 +208,4 @@ If you use GeoFormer or Quantized Propagation Geometry in your research, please 
 ---
 
 ## License
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is dual-licensed under the **MIT License** (for software, SDK, and source code) and the **Creative Commons Attribution 4.0 International (CC BY 4.0)** (for documentation, specifications, and diagrammatic assets) — see the [LICENSE](LICENSE) file for complete details.
