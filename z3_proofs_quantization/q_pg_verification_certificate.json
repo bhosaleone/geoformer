@@ -1,0 +1,64 @@
+{
+  "framework": "Quantized Propagation Geometry (Q-PG)",
+  "author": "Atmabhan Pandit (Shrikant Bhosale)",
+  "research_units": [
+    "TWIST POOL Labs",
+    "ISL Research",
+    "NanoCERN Unit"
+  ],
+  "timestamp_unix": 1793076232.3974218,
+  "total_theorems": 6,
+  "theorems_proven_unsat": 6,
+  "all_certified": true,
+  "total_runtime_seconds": 0.0225,
+  "results": [
+    {
+      "id": "Q-1",
+      "name": "Discrete Geodesic Contraction",
+      "description": "dW/dt discrete jump operator guarantees strict metric distance contraction d_{t+1} < d_t",
+      "status": "UNSAT (Certified Proven)",
+      "runtime_ms": 9.39,
+      "certified": true
+    },
+    {
+      "id": "Q-2",
+      "name": "Quantized Fiedler Preservation",
+      "description": "Minimal lattice floor W_min >= delta_w guarantees lambda_2(L^(b)) >= N * delta_w > 0",
+      "status": "UNSAT (Certified Proven)",
+      "runtime_ms": 2.96,
+      "certified": true
+    },
+    {
+      "id": "Q-3",
+      "name": "Precision-Topology Equivalence",
+      "description": "Dynamic metric range R_geom >= Delta_Q allows topological degrees of freedom to replace float precision",
+      "status": "UNSAT (Certified Proven)",
+      "runtime_ms": 2.23,
+      "certified": true
+    },
+    {
+      "id": "Q-4",
+      "name": "Finite-Neuron Induction Bound",
+      "description": "N >= 16 neurons partition into 4 registers with d_r >= 4, guaranteeing Rank(I) >= 2 with 0 collisions",
+      "status": "UNSAT (Certified Proven)",
+      "runtime_ms": 1.86,
+      "certified": true
+    },
+    {
+      "id": "Q-5",
+      "name": "Quantized Kramers Grokking Tunneling",
+      "description": "Stochastic Dual Path Kramers tunneling guarantees finite escape time tau_grok < infty vs deterministic infty",
+      "status": "UNSAT (Certified Proven)",
+      "runtime_ms": 2.46,
+      "certified": true
+    },
+    {
+      "id": "Q-6",
+      "name": "Quantized S_5 Kolmogorov Bounded Complexity",
+      "description": "S_5 Cayley projectors strictly bound description complexity K(S) <= 54.68 bits under quantization",
+      "status": "UNSAT (Certified Proven)",
+      "runtime_ms": 3.36,
+      "certified": true
+    }
+  ]
+}
