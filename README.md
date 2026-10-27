@@ -189,6 +189,7 @@ All figures are rendered in both high-resolution PNG and vector SVG on pure whit
 - **[Figure 9: Decisive Zero-Shot Transitive Generalization Breakthrough](diagrams/figure_9_decisive_transitive_generalization.png)**
 - **[Figure 10: Neuromorphic Memristor Crossbar Hardware & Energy Audit](diagrams/figure_10_memristor_crossbar_robustness_and_energy.png)**
 - **[Figure 11: Tier 5 Deep Transitive Reasoning Scaling ($k=2, 3, 4$ Hops)](diagrams/figure_11_tier5_deep_transitive_scaling.png)**
+- **[Figure 12: Tier 6 Relational Memory Transitive Scaling ($k=2, 3, 4$ Hops)](diagrams/figure_12_relational_memory_transitive_scaling.png)**
 
 ---
 
