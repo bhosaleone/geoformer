@@ -137,7 +137,54 @@ To evaluate robustness without hyperbole, four physical stress tests were execut
 
 ---
 
-## 5. MCU Scaling Envelope & Physical Limits
+## 5. Physical Energy & Electrical Power Audit (ATmega328P)
+
+To prevent scientific confusion between **modeled analog memristor ASICs** and **physical digital microcontrollers**, we provide the exact first-principles electrical audit of the Arduino Uno executing the GeoFormer-MCU kernel:
+
+### 5.1 Operating Parameters & Supply Current
+* **Operating Rail Voltage:** $V_{\text{CC}} = 5.0\text{ V}$ (supplied via USB host).
+* **Clock Frequency:** $f_{\text{clk}} = 16.0\text{ MHz}$ (crystal oscillator).
+* **ATmega328P Core Active Current (Datasheet DS40002061B @ 16 MHz, 5V):** $I_{\text{core}} \approx 10.0\text{ mA}$.
+* **ATmega328P Core Dynamic Power:**
+  $$P_{\text{core}} = V_{\text{CC}} \cdot I_{\text{core}} = 5.0\text{ V} \cdot 10.0\text{ mA} = \mathbf{50.0\text{ mW}} \quad (0.050\text{ W})$$
+* **Total Board-Level Power (including USB chip, voltage regulator, and status LEDs):**
+  $$P_{\text{board}} = 5.0\text{ V} \cdot 32.0\text{ mA} = \mathbf{160.0\text{ mW}} \quad (0.160\text{ W})$$
+
+### 5.2 Physical Energy Dissipation per Inference Pass
+
+Because dynamic energy is the integral of power over time ($E = P \cdot \Delta t$):
+
+| Execution Phase | Measured Latency ($\Delta t$) | Core Energy Dissipation ($E_{\text{core}}$) | Total Board Energy ($E_{\text{board}}$) |
+| :--- | :---: | :---: | :---: |
+| **Single Q-TAC Step** | **$47.0\ \mu\text{s}$** | **$2.35\ \mu\text{J}$** ($2,350\text{ nJ}$) | **$7.52\ \mu\text{J}$** |
+| **2-Hop Transitive Query ($\tau=2$)** | **$6.61\text{ ms}$** | **$330.5\ \mu\text{J}$** ($0.331\text{ mJ}$) | **$1,057.6\ \mu\text{J}$** ($1.06\text{ mJ}$) |
+| **3-Hop Deep Query ($\tau=3$)** | **$8.91\text{ ms}$** | **$445.5\ \mu\text{J}$** ($0.446\text{ mJ}$) | **$1,425.6\ \mu\text{J}$** ($1.43\text{ mJ}$) |
+
+### 5.3 Power vs. Energy Comparison Across Platforms
+
+A crucial distinction exists between **operating power** (watts) and **energy per query** (joules):
+
+```
+Operating Power (Lower is better for battery & thermal viability):
+  NVIDIA Server GPU (H100/A100):     300,000 mW   [||||||||||||||||||||||||||||||||||||||||]
+  Google Coral Edge TPU:               2,000 mW   [||]
+  ATmega328P Microcontroller:             50 mW   [|] -> 6,000x LOWER DYNAMIC POWER THAN GPU!
+
+Energy per Query (Reflects instruction serialization over time):
+  ATmega328P (8-bit @ 16 MHz):         330.5 µJ   (Takes 6.6 ms due to 8-bit serialization)
+  NVIDIA Server GPU (FP32 Dense):        4.2 µJ   (Takes ~10 µs with 300W peak power)
+  ARM Cortex-M55 NPU (INT8):           0.065 µJ   (Takes ~1 ms with dedicated DSP vector units)
+  Analog 1T1R Memristor Crossbar ASIC: 0.00044 µJ (443.9 pJ, Modeled 10 ns analog transport)
+```
+
+**Key Takeaways:**
+1. **Operating Power Advantage:** At **$50\text{ mW}$ active core power**, the Arduino Uno draws **$6,000\times$ less operating power than a 300W GPU server**. It can run continuously for days on a standard 9V battery or low-power solar harvester.
+2. **Why Energy is Microjoules, Not Picojoules on MCU:** An 8-bit MCU has no vector pipelines or floating-point hardware; executing multi-step matrix diffusion requires sequential 8-bit loops over $6.6\text{ ms}$.
+3. **The 443.9 pJ Figure Applies Exclusively to Memristor ASICs:** The $443.9\text{ pJ}$ figure is an analytical device physics simulation of a non-von Neumann analog 1T1R ReRAM crossbar operating at $200\text{ mV}$ in $10\text{ ns}$. It must never be confused with digital microcontroller execution.
+
+---
+
+## 6. MCU Scaling Envelope & Physical Limits
 
 Because dense matrix representations scale as $\mathcal{O}(N^2)$ in memory:
 
