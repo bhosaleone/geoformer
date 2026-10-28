@@ -67,3 +67,10 @@ venv.bak/
 
 # Nested clone
 TAC/
+
+# Benchmark Datasets (downloaded on-demand)
+data/
+*.npz
+*.tsv
+*.tar.gz
+
