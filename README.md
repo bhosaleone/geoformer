@@ -13,6 +13,7 @@
 > **Author:** Shrikant Bhosale (Atmabhan Pandit)  
 > *MBBS Student, Government Medical College (GMC), Sambhajinagar, Maharashtra, India*  
 > *Organization:* **SetMD** │ **TWIST POOL Labs** │ **ISL Research** │ **NanoCERN Unit**  
+> *Website & Blog:* [praman.blog](https://praman.blog) │ *Official Monograph Essay:* [Praman Dispatches](https://praman.blog/geoformer-propagation-geometry-neuromorphic-foundation-model/)  
 > *Hugging Face Hub:* [SetMD/geoformer](https://huggingface.co/SetMD/geoformer) │ *Sister Architecture:* [bhosaleone/TAC](https://github.com/bhosaleone/TAC)  
 > *Kaggle:* [@shrikantbhosale786](https://www.kaggle.com/shrikantbhosale786) │ *Paper Track:* [ARC Prize 2026 Writeup](https://www.kaggle.com/competitions/arc-prize-2026-paper-track/writeups/new-writeup-1792900209877)
 

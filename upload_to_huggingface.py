@@ -54,6 +54,7 @@ pipeline_tag: feature-extraction
 **Author:** Shrikant Bhosale (Atmabhan Pandit)  
 *MBBS Student, Government Medical College (GMC), Sambhajinagar, Maharashtra, India*  
 *Organization:* **SetMD** │ **TWIST POOL Labs** │ **ISL Research** │ **NanoCERN Unit**  
+*Author Website & Blog:* [praman.blog](https://praman.blog) │ *Official Essay:* [Praman Dispatches](https://praman.blog/geoformer-propagation-geometry-neuromorphic-foundation-model/)  
 *Official GitHub Repository:* [https://github.com/bhosaleone/geoformer](https://github.com/bhosaleone/geoformer)  
 *Sister Repository (Continuous TAC):* [https://github.com/bhosaleone/TAC](https://github.com/bhosaleone/TAC)
 
