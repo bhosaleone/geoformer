@@ -11,7 +11,7 @@ architectural component on Zero-Shot Multi-Hop Transitive Reasoning:
   6. Precision Ablation (FP32 GeoFormer): Full FP32 weights vs. 1.58-bit Ternary
 
 Replication across 5 independent seeds: [42, 101, 777, 999, 2024]
-License: MIT
+License: AGPL-3.0
 Author: Shrikant Bhosale (Atmabhan Pandit), TWIST POOL Labs
 """
 

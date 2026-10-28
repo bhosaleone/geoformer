@@ -10,7 +10,7 @@ readme = "README.md"
 authors = [
     { name = "Atmabhan Pandit (Shrikant Bhosale)", email = "research@twistpool.org" }
 ]
-license = { text = "MIT" }
+license = { text = "AGPL-3.0-or-later" }
 requires-python = ">=3.9"
 dependencies = [
     "torch>=2.0.0",

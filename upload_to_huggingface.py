@@ -48,7 +48,7 @@ pipeline_tag: feature-extraction
 [![GitHub Repo](https://img.shields.io/badge/GitHub-bhosaleone%2Fgeoformer-blue?logo=github&style=for-the-badge)](https://github.com/bhosaleone/geoformer)
 [![Sister Repo](https://img.shields.io/badge/Sister%20Repo-bhosaleone%2FTAC-blueviolet?logo=github&style=for-the-badge)](https://github.com/bhosaleone/TAC)
 [![Microsoft Z3](https://img.shields.io/badge/Microsoft%20Z3-6%2F6%20UNSAT%20Verified-brightgreen?style=for-the-badge)](https://github.com/Z3Prover/z3)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange?style=for-the-badge&logo=pytorch)](https://pytorch.org/)
 
 **Author:** Shrikant Bhosale (Atmabhan Pandit)  
@@ -288,8 +288,8 @@ We warmly welcome partnerships with neuromorphic hardware teams (ReRAM/PCM test 
 
 ---
 
-## 📄 License
-MIT License. Copyright (c) 2026 Shrikant Bhosale (Atmabhan Pandit), TWIST POOL Labs / SetMD.
+## 📄 License & Commercial Rights
+Dual-licensed under the **GNU Affero General Public License v3.0 (AGPLv3)** for open research and under **Commercial Closed-Source Licensing** for enterprise deployment. Copyright (c) 2026 Shrikant Bhosale (Atmabhan Pandit), TWIST POOL Labs / SetMD. Contact: `research@twistpool.org`.
 """
 
 

@@ -7,7 +7,7 @@
   <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg?style=for-the-badge&logo=pytorch" alt="PyTorch 2.0+"></a>
   <a href="https://github.com/Z3Prover/z3"><img src="https://img.shields.io/badge/Microsoft%20Z3-6%2F6%20UNSAT%20Verified-brightgreen.svg?style=for-the-badge" alt="Z3 Prover"></a>
   <a href="https://github.com/bhosaleone/TAC"><img src="https://img.shields.io/badge/Sister%20Repo-bhosaleone%2FTAC-blueviolet.svg?style=for-the-badge" alt="Sister Repo: TAC"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License: MIT"></a>
+  <a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge" alt="License: AGPL v3"></a>
 </p>
 
 > **Author:** Shrikant Bhosale (Atmabhan Pandit)  
@@ -404,5 +404,12 @@ If you use GeoFormer or Quantized Propagation Geometry in your research, please 
 
 ---
 
-## License
-This project is dual-licensed under the **MIT License** (for software, SDK, and source code) and the **Creative Commons Attribution 4.0 International (CC BY 4.0)** (for documentation, specifications, and diagrammatic assets) — see the [LICENSE](LICENSE) file for complete details.
+## License & Commercial Rights
+
+This project is licensed under a **Dual-Licensing Architecture** to protect author financial rights while supporting open science:
+
+1. **Open-Source & Research License:** The software, SDK, algorithms, and source code are licensed under the **[GNU Affero General Public License v3.0 (AGPLv3)](LICENSE)**. Academics, students, and open-source contributors may freely inspect, modify, and build upon this work. Any network-hosted service or cloud API incorporating GeoFormer must disclose complete corresponding source code under AGPLv3.
+2. **Commercial Proprietary Exemption (Commercial License):** Any commercial entity, enterprise, or closed-source application seeking to utilize GeoFormer or TAC without being bound by the copyleft provisions of AGPLv3 (including Section 13 remote network source disclosure) must purchase a **Commercial Closed-Source License**.
+3. **Scientific Treatises & Documentation:** All theoretical manuscripts (`book_propagation_geometry/`), reports (`docs/`), and diagrammatic assets are licensed under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
+
+For commercial inquiries, licensing exemptions, or enterprise deployments, contact: **`research@twistpool.org`** / **`shrikantbhosale786@gmail.com`**.
