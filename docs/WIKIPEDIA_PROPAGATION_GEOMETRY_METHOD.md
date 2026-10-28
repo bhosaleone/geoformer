@@ -1,9 +1,11 @@
-# WIKIPEDIA CONTINUOUS INGESTION & SELF-TRAINING METHOD
-## Grounded in the Mathematical Formalism of Propagation Geometry (GANN & GeoFormer)
+# PRAMĀNA INTELLIGENCE SYSTEM (PIS)
+## Wikipedia Continuous Ingestion & Self-Purifying Epistemic Engine
+### Grounded in the Mathematical Formalism of Propagation Geometry (GANN & GeoFormer)
 
+**System Architecture:** **Pramāna Intelligence System (PIS)**  
 **Theoretical Foundation:** [`docs/MATHEMATICAL_FORMALISM_AI_TRAINING_PROPAGATION_GEOMETRY.md`](file:///home/shri/Desktop/neural%20Networks/docs/MATHEMATICAL_FORMALISM_AI_TRAINING_PROPAGATION_GEOMETRY.md)  
 **Author:** Shrikant Bhosale (Atmabhan Pandit), TWIST POOL Labs │ ISL Research │ NanoCERN Unit  
-**Status:** Canonical Engineering Specification & Methodological Protocol  
+**Status:** Canonical Engineering Specification & Epistemic Protocol  
 
 ---
 
