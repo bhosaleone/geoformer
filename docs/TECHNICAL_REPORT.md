@@ -1,5 +1,8 @@
 # GeoFormer: Solving Few-Shot Abstraction via Endogenous Propagation Geometry and Neuromorphic Metric Manifolds
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23730305.svg)](https://doi.org/10.5281/zenodo.23730305)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
 **A Machine-Verified, Quantized Architecture for Zero-Shot Multi-Hop Reasoning and Sub-Nanojoule Edge Inference**
 
 **Technical Report │ Version 1.0 │ October 2026**
@@ -9,6 +12,7 @@
   *Government Medical College (GMC), Sambhajinagar, Maharashtra, India*  
   *SetMD │ TWIST POOL Labs │ ISL Research │ NanoCERN Research Unit*  
   *Author Emails:* `ishrikantbhosale@gmail.com` │ `bhosaleone@gmail.com`  
+  *Zenodo DOI:* [10.5281/zenodo.23730305](https://doi.org/10.5281/zenodo.23730305) │ *PDF:* [GeoFormer_Technical_Report.pdf](GeoFormer_Technical_Report.pdf)  
   *Correspondence:* [praman.blog](https://praman.blog) │ [github.com/bhosaleone/geoformer](https://github.com/bhosaleone/geoformer)
 
 ---
@@ -317,3 +321,28 @@ GeoFormer bridges the gap between biological neurodynamics and neuromorphic edge
 6. De Moura, L., & Bjørner, N. (2008). Z3: An efficient SMT solver. *TACAS 2008*, LNCS 4963, 337–340.
 7. Strukov, D. B., Snider, G. S., Stewart, D. R., & Williams, R. S. (2008). The missing memristor found. *Nature*, 453(7191), 80–83.
 8. Pandit, A. (Shrikant Bhosale). (2026). Scope Theory: A Geometric Baseline for Information Scaling. *ISL Research Monographs*.
+
+---
+
+## Citation
+
+```bibtex
+@article{bhosale2026geoformer,
+  title={GeoFormer: Non-Equilibrium Metric Manifolds and Quantized Thermodynamic Attractor Convergence for Multi-Hop Transitive Reasoning},
+  author={Bhosale, Shrikant},
+  journal={Zenodo Technical Note},
+  year={2026},
+  month={October},
+  version={1.00},
+  doi={10.5281/zenodo.23730305},
+  url={https://doi.org/10.5281/zenodo.23730305}
+}
+```
+
+---
+
+## License & Commercial Rights
+
+- **Open-Source Implementation:** Software and code are licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.
+- **Commercial Closed-Source Licensing:** For proprietary enterprise licensing exemptions from copyleft terms, contact: `ishrikantbhosale@gmail.com` │ `bhosaleone@gmail.com`.
+- **Preprint & Report Documentation:** Licensed under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.

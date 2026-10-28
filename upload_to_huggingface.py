@@ -16,7 +16,7 @@ HF_REPO_ID = "SetMD/geoformer"
 POLISHED_MODEL_CARD = """---
 language:
 - en
-license: mit
+license: agpl-3.0
 library_name: pytorch
 tags:
 - neuromorphic
@@ -44,6 +44,7 @@ pipeline_tag: feature-extraction
 
 # 🧠 GeoFormer: Quantized Propagation Geometry & Neuromorphic Foundation Model
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23730305.svg)](https://doi.org/10.5281/zenodo.23730305)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model%20Hub%20Weights-yellow?style=for-the-badge&logo=huggingface)](https://huggingface.co/SetMD/geoformer)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-bhosaleone%2Fgeoformer-blue?logo=github&style=for-the-badge)](https://github.com/bhosaleone/geoformer)
 [![Sister Repo](https://img.shields.io/badge/Sister%20Repo-bhosaleone%2FTAC-blueviolet?logo=github&style=for-the-badge)](https://github.com/bhosaleone/TAC)
@@ -278,18 +279,22 @@ We warmly welcome partnerships with neuromorphic hardware teams (ReRAM/PCM test 
 ## 📖 Citation
 
 ```bibtex
-@software{bhosale2026geoformer,
-  author = {Bhosale, Shrikant},
-  title = {GeoFormer: Quantized Propagation Geometry and Neuromorphic In-Memory Foundation Models},
-  url = {https://github.com/bhosaleone/geoformer},
-  year = {2026}
+@article{bhosale2026geoformer,
+  title={GeoFormer: Non-Equilibrium Metric Manifolds and Quantized Thermodynamic Attractor Convergence for Multi-Hop Transitive Reasoning},
+  author={Bhosale, Shrikant},
+  journal={Zenodo Technical Note},
+  year={2026},
+  month={October},
+  version={1.00},
+  doi={10.5281/zenodo.23730305},
+  url={https://doi.org/10.5281/zenodo.23730305}
 }
 ```
 
 ---
 
 ## 📄 License & Commercial Rights
-Dual-licensed under the **GNU Affero General Public License v3.0 (AGPLv3)** for open research and under **Commercial Closed-Source Licensing** for enterprise deployment. Copyright (c) 2026 Shrikant Bhosale (Atmabhan Pandit), TWIST POOL Labs / SetMD. Contact: `research@twistpool.org`.
+Dual-licensed under the **GNU Affero General Public License v3.0 (AGPLv3)** for open research and under **Commercial Closed-Source Licensing** for enterprise deployment. Copyright (c) 2026 Shrikant Bhosale (Atmabhan Pandit), TWIST POOL Labs / SetMD. Contact: `ishrikantbhosale@gmail.com` │ `bhosaleone@gmail.com`.
 """
 
 

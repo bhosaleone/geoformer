@@ -1,6 +1,7 @@
 # GeoFormer: Solving Few-Shot Abstraction via Endogenous Propagation Geometry & Neuromorphic Metric Manifolds
 
 <p align="center">
+  <a href="https://doi.org/10.5281/zenodo.23730305"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23730305.svg" alt="DOI: 10.5281/zenodo.23730305"></a>
   <a href="https://huggingface.co/SetMD/geoformer"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model%20Hub%20Weights-yellow.svg?style=for-the-badge&logo=huggingface" alt="Hugging Face Models"></a>
   <a href="https://github.com/bhosaleone/geoformer/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg?style=for-the-badge" alt="CI"></a>
   <a href="https://pytest.org/"><img src="https://img.shields.io/badge/PyTest-37%2F37%20Passing%20(100%25)-success.svg?style=for-the-badge" alt="PyTest"></a>
@@ -13,6 +14,7 @@
 > **Author:** Shrikant Bhosale (Atmabhan Pandit)  
 > *MBBS Student, Government Medical College (GMC), Sambhajinagar, Maharashtra, India*  
 > *Organization:* **SetMD** │ **TWIST POOL Labs** │ **ISL Research** │ **NanoCERN Unit**  
+> *Zenodo Official Publication:* [doi:10.5281/zenodo.23730305](https://doi.org/10.5281/zenodo.23730305) │ *PDF:* [docs/GeoFormer_Technical_Report.pdf](docs/GeoFormer_Technical_Report.pdf)  
 > *Academic Technical Report:* [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md) │ *Ablation Study:* [docs/ablation_study_results.md](docs/ablation_study_results.md)  
 > *Website & Blog:* [praman.blog](https://praman.blog) │ *Official Monograph Essay:* [Praman Dispatches](https://praman.blog/geoformer-propagation-geometry-neuromorphic-foundation-model/)  
 > *Hugging Face Hub:* [SetMD/geoformer](https://huggingface.co/SetMD/geoformer) │ *Sister Architecture:* [bhosaleone/TAC](https://github.com/bhosaleone/TAC)  
@@ -390,15 +392,18 @@ We warmly welcome partnerships with neuromorphic hardware teams (ReRAM/PCM test 
 
 ## Citation
 
-If you use GeoFormer or Quantized Propagation Geometry in your research, please cite:
+If you use GeoFormer or Quantized Propagation Geometry in your research, please cite the official Zenodo technical report:
 
 ```bibtex
 @article{bhosale2026geoformer,
-  title={GeoFormer: Solving Few-Shot Abstraction via Endogenous Propagation Geometry and Two-Timescale Metric Manifolds},
+  title={GeoFormer: Non-Equilibrium Metric Manifolds and Quantized Thermodynamic Attractor Convergence for Multi-Hop Transitive Reasoning},
   author={Bhosale, Shrikant},
-  journal={ARC Prize 2026 Paper Track Writeup},
+  journal={Zenodo Technical Note},
   year={2026},
-  url={https://www.kaggle.com/competitions/arc-prize-2026-paper-track/writeups/new-writeup-1792900209877}
+  month={October},
+  version={1.00},
+  doi={10.5281/zenodo.23730305},
+  url={https://doi.org/10.5281/zenodo.23730305}
 }
 ```
 
@@ -412,4 +417,4 @@ This project is licensed under a **Dual-Licensing Architecture** to protect auth
 2. **Commercial Proprietary Exemption (Commercial License):** Any commercial entity, enterprise, or closed-source application seeking to utilize GeoFormer or TAC without being bound by the copyleft provisions of AGPLv3 (including Section 13 remote network source disclosure) must purchase a **Commercial Closed-Source License**.
 3. **Scientific Treatises & Documentation:** All theoretical manuscripts (`book_propagation_geometry/`), reports (`docs/`), and diagrammatic assets are licensed under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
 
-For commercial inquiries, licensing exemptions, or enterprise deployments, contact: **`research@twistpool.org`** / **`shrikantbhosale786@gmail.com`**.
+For commercial inquiries, licensing exemptions, or enterprise deployments, contact: **`ishrikantbhosale@gmail.com`** │ **`bhosaleone@gmail.com`**.

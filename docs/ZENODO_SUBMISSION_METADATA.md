@@ -1,6 +1,14 @@
-# Zenodo Upload Metadata Sheet
+# Zenodo Publication Record & Metadata Sheet
 
-Copy and paste the fields below directly into the **[Zenodo New Upload](https://zenodo.org/deposit/new)** form.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23730305.svg)](https://doi.org/10.5281/zenodo.23730305)
+
+> **Publication Status:** ✅ **OFFICIALLY PUBLISHED & REGISTERED**  
+> **Permanent Zenodo Record:** [https://zenodo.org/records/23730305](https://zenodo.org/records/23730305)  
+> **Version DOI:** [`10.5281/zenodo.23730305`](https://doi.org/10.5281/zenodo.23730305)  
+> **Concept DOI (All Versions):** [`10.5281/zenodo.23730304`](https://doi.org/10.5281/zenodo.23730304)  
+> **Publication Date:** October 28, 2026  
+> **OpenAIRE / CERN Indexing:** Active  
+> **Prior Art Status:** Irrevocable worldwide prior art established under USPTO 35 U.S.C. § 102, EPO Art 54, Indian Patents Act Sec 13.
 
 ---
 
