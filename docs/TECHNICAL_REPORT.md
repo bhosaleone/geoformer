@@ -8,6 +8,7 @@
 - **Shrikant Bhosale (Atmabhan Pandit)**  
   *Government Medical College (GMC), Sambhajinagar, Maharashtra, India*  
   *SetMD │ TWIST POOL Labs │ ISL Research │ NanoCERN Research Unit*  
+  *Author Emails:* `ishrikantbhosale@gmail.com` │ `bhosaleone@gmail.com`  
   *Correspondence:* [praman.blog](https://praman.blog) │ [github.com/bhosaleone/geoformer](https://github.com/bhosaleone/geoformer)
 
 ---
