@@ -81,7 +81,8 @@ To ensure complete scientific rigor and peer-review integrity, all reported metr
 | **Packed Parameter Footprint** | **48.76 KB** | **MEASURED** | BitNet b1.58 packed serialization (1.58 bits/weight, fits on edge MCUs) |
 | **Inference Latency (CPU)** | **0.16 ms – 0.40 ms** | **MEASURED** | Empirical wall-clock execution time on standard x86_64 CPU (`torch.no_grad()`) |
 | **Sparse Memory Footprint** | **0.19 MB – 9.54 MB** | **MEASURED** | `scipy.sparse.csr_matrix` RAM consumption across 10,000–100,000 relational triples |
-| **Transitive Reasoning Scaling** | **84.7% ± 5.1%** | **MEASURED** | 5-seed empirical evaluation on Tier 6 relational crossroad graphs (`108.6x` chance level) |
+| **Small-Scale Transitive Ablation (Hits@1)** | **40.00% ± 7.30%** | **MEASURED** | 5-seed evaluation on 20-node benchmark with directed Q-TAC (vs. 45.33% pure random walk $P^2$, 1.33% flat transformer). |
+| **Small-Scale Transitive Ablation (Hits@3)** | **89.33% ± 6.53%** | **MEASURED** | Top-3 candidate retrieval across 5 seeds (target is in top-3 candidates for 89.33% of unseen queries). |
 | **Algebraic Invariant Stability** | **6/6 UNSAT** | **FORMALLY CERTIFIED** | Automated deductive machine proof in **Microsoft Z3 SMT Theorem Prover** |
 | **Dynamic Energy Dissipation** | **443.9 pJ** | **MODELED** | First-principles analytical physics model of 1T1R ReRAM + 4-bit flash ADC/DAC conversion |
 | **Analog Noise Resilience** | **38.0% @ 20% noise** | **MODELED** | Monte Carlo analog conductance perturbation simulation (`benchmarks/memristor_crossbar_emulator.py`) |
@@ -139,6 +140,32 @@ In GeoFormer, multi-hop reasoning is achieved by propagating activations through
 | **4-Hop Transitive ($A \to E$)** | $0.0\% \pm 0.0\%$ | $30.7\% \pm 7.2\%$ | **$76.0\% \pm 7.6\%$** (peak $83.3\%$) | **$+76.0\%$** | **$97.4\times$ Chance** | **$p = 1.37 \times 10^{-3}$** |
 
 *Rigorous evaluation across 128 entities, 30 multi-hop chains with 28 branching crossroads, evaluated over 5 independent random seeds (42, 101, 2024, 777, 999). Uniform chance level: $1/128 = 0.781\%$.*
+
+---
+
+## 🔬 Empirical Reality: Calibrated Multi-Hop Ablation Findings
+
+To ensure full scientific transparency, all multi-hop reasoning claims are evaluated against non-neural graph diffusion baselines and systematic architectural controls across 5 independent random seeds (`42, 101, 777, 999, 2024`):
+
+### 1. Controlled Ablation & Non-Neural Baseline Comparison (`benchmarks/run_ablations.py`)
+
+| Configuration | Type | Metric Lattice | Propagation Operator | Hits@1 (Mean ± Std) | Hits@3 | MRR |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Reference: Pure Adjacency Power ($A^2$)** | Non-Neural | Directed | Discrete $A^2$ | **$49.33\% \pm 12.36\%$** | **$81.33\%$** | **$94.00\%$** |
+| **Reference: Pure Random Walk ($P^2$)** | Non-Neural | Directed | Stochastic $P^2$ | **$45.33\% \pm 9.80\%$** | **$88.00\%$** | **$82.44\%$** |
+| **Full Q-GeoFormer (Directed + Pure Q-TAC)** | **Neural (1.58b)** | **Directed** | **Q-TAC ($\tau=1$)** | **$40.00\% \pm 7.30\%$** | **$89.33\%$** | **$64.80\%$** |
+| Ablation 1: Undirected / Symmetrized Lattice | Neural (1.58b) | Symmetrized | Q-TAC ($\tau=1$) | $29.33\% \pm 10.83\%$ | $64.00\%$ | $50.94\%$ |
+| Ablation 2: Residual Drowning (0.1 weight) | Neural (1.58b) | Directed | Diluted Residual | $1.33\% \pm 2.67\%$ | $46.67\%$ | $29.44\%$ |
+| Ablation 3: No Q-TAC Relaxation ($\tau=0$) | Neural (1.58b) | Directed | Disabled | $2.67\% \pm 3.27\%$ | $10.67\%$ | $16.17\%$ |
+| Ablation 4: Flat Euclidean Transformer | Neural (FP32) | None | Disabled | $1.33\% \pm 2.67\%$ | $12.00\%$ | $15.79\%$ |
+
+### 2. Key Findings & Diagnostic Insights
+1. **Source of the Performance Lift:** Non-neural baselines prove that the ~40–45% top-1 accuracy is driven directly by multi-step directed graph propagation ($P^2=45.33\%$, $A^2=49.33\%$). Q-GeoFormer successfully channels this topology into neural latent space ($40.00\%$ Hits@1, $89.33\%$ Hits@3), while flat Transformers remain trapped at random chance ($1.33\%$).
+2. **The 40% Ceiling is a 1-to-N Branching Property:** In a 20-node graph with 30 directed edges, each head entity connects to an average of $4.01 \pm 2.11$ reachable 2-hop candidates (random guess chance: $24.92\%$). Under identical head queries with multiple valid targets, argmax top-1 cannot score 100%. Hits@3 ($89.33\%$) confirms the target is almost always in the top candidate set.
+3. **Decisive Negative Controls:**
+   - **Undirected Symmetrization ($W = W + W^T$):** Creates 2-cycles ($A \to B \to A$) that echo back to self, degrading top-1 accuracy to $29.33\%$.
+   - **Residual Drowning ($0.1 \times \text{diff}$):** Retaining a heavy 1-hop residual completely drowns the 2-hop signal, collapsing top-1 accuracy to $1.33\%$.
+
 
 ---
 

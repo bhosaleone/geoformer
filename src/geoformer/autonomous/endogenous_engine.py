@@ -19,6 +19,7 @@ class ConsolidationConfig:
     alpha: float = (5.0**0.5 - 1.0) / 2.0  # irrational golden driver ≈ 0.6180339887
     kappa_closed: float = 0.85
     seed: int = 0
+    symmetrize: bool = False           # False for directed knowledge graphs, True if undirected metric
 
 
 @dataclass
@@ -172,7 +173,8 @@ class EndogenousConsolidator:
                     
                     if actual_delta > 1e-7:
                         dense_W[i, k] = new_val
-                        dense_W[k, i] = new_val
+                        if self.cfg.symmetrize:
+                            dense_W[k, i] = new_val
                         edges_updated += 1
                         max_abs_delta_observed = max(max_abs_delta_observed, actual_delta)
 
