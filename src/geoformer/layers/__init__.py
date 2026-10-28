@@ -3,6 +3,7 @@ from .cayley import S5CayleyProjector
 from .attention import QuantizedGHA
 from .tac import QuantizedTAC
 from .memory import HippocampalRelationalMemory
+from .sparse_memory import SparseHippocampalRelationalMemory
 
 __all__ = [
     "TernarySwiGLU",
@@ -10,4 +11,5 @@ __all__ = [
     "QuantizedGHA",
     "QuantizedTAC",
     "HippocampalRelationalMemory",
+    "SparseHippocampalRelationalMemory",
 ]
