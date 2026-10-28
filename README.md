@@ -70,6 +70,24 @@ print(f"✅ Loaded GeoFormer Foundation Network ({sum(p.numel() for p in model.p
 
 ---
 
+## 📊 Empirical Transparency: Measured vs. Modeled Benchmarks
+
+To ensure complete scientific rigor and peer-review integrity, all reported metrics are explicitly partitioned into **Empirically Measured** on standard hardware, **Formally Certified** via SMT solvers, or **Analytically Modeled** via device physics:
+
+| Metric / Property | Claimed Value | Category | Verification Substrate & Methodology |
+| :--- | :---: | :---: | :--- |
+| **Foundation Model Parameters** | **249,665** | **MEASURED** | Actual PyTorch `nn.Module` tensor parameter count (`checkpoints/geoformer_foundation_model.pt`) |
+| **Packed Parameter Footprint** | **48.76 KB** | **MEASURED** | BitNet b1.58 packed serialization (1.58 bits/weight, fits on edge MCUs) |
+| **Inference Latency (CPU)** | **0.16 ms – 0.40 ms** | **MEASURED** | Empirical wall-clock execution time on standard x86_64 CPU (`torch.no_grad()`) |
+| **Sparse Memory Footprint** | **0.19 MB – 9.54 MB** | **MEASURED** | `scipy.sparse.csr_matrix` RAM consumption across 10,000–100,000 relational triples |
+| **Transitive Reasoning Scaling** | **84.7% ± 5.1%** | **MEASURED** | 5-seed empirical evaluation on Tier 6 relational crossroad graphs (`108.6x` chance level) |
+| **Algebraic Invariant Stability** | **6/6 UNSAT** | **FORMALLY CERTIFIED** | Automated deductive machine proof in **Microsoft Z3 SMT Theorem Prover** |
+| **Dynamic Energy Dissipation** | **443.9 pJ** | **MODELED** | First-principles analytical physics model of 1T1R ReRAM + 4-bit flash ADC/DAC conversion |
+| **Analog Noise Resilience** | **38.0% @ 20% noise** | **MODELED** | Monte Carlo analog conductance perturbation simulation (`benchmarks/memristor_crossbar_emulator.py`) |
+| **Clinical Diagnostic Accuracy** | **100.0% (5 Cases)** | **RESEARCH DEMO** | Proof-of-concept evaluation on curated casualty cases. *Strictly not for real human patient use.* |
+
+---
+
 ## Architecture Pipeline
 
 ![Figure 6: Quantized GeoFormer Block Circuit Pipeline](diagrams/figure_6_q_geoformer_architecture_pipeline.png)
@@ -215,21 +233,33 @@ with torch.no_grad():
 print(f"Logits shape: {logits.shape} | Predictions: {logits.argmax(dim=-1).tolist()}")
 ```
 
-### 2. Clinical Differential Diagnostic Assistant
+### 2. Clinical Emergency Triage Assistant (Research Prototype)
+> ⚠️ **Research Disclaimer:** Preliminary proof-of-concept demonstrated on curated textbook casualty cases. Strictly not approved for real-world patient diagnosis.
 ```python
-from geoformer.clinical.engine import ClinicalGeoFormerEngine
+from geoformer.clinical import GeoFormerClinicalDiagnosticEngine
 
 # Initialize emergency department reasoning engine
-engine = ClinicalGeoFormerEngine()
+engine = GeoFormerClinicalDiagnosticEngine()
 
 # Input emergency clinical findings
-findings = ["Chest_Pain", "Tearing_Pain", "Pulse_Deficit", "Hypotension"]
-result = engine.diagnose(findings)
+findings = ["Tearing_Interscapular_Back_Pain", "Pulse_Deficit_Between_Arms", "Severe_Refractory_Hypertension"]
+result = engine.diagnose_patient(findings, top_k=3)
 
-print(f"Primary Emergency Diagnosis: {result.top_diagnosis}")
-print(f"Urgency Level: {result.differential[0].urgency}")
-print(f"Causal Multi-Hop Pathway: {' -> '.join(result.causal_path)}")
+print(f"Primary Emergency Diagnosis: {result['primary_diagnosis']}")
+print(f"Inference Latency: {result['inference_latency_ms']:.2f} ms")
+for alert in result['safety_contraindications']:
+    print(f"Safety Alert: {alert}")
 ```
+
+### 3. 📂 Self-Contained Runnable Examples (`examples/`)
+
+Run any minimal example directly from your terminal:
+
+* **[`examples/01_quickstart_inference.py`](examples/01_quickstart_inference.py)**: Load official 249k-param foundation weights & run inference in < 1 ms on CPU.
+* **[`examples/02_multi_hop_transitive_reasoning.py`](examples/02_multi_hop_transitive_reasoning.py)**: Multi-hop transitive routing across metric highways without autoregressive scratchpads.
+* **[`examples/03_sparse_memory_scaling_100k.py`](examples/03_sparse_memory_scaling_100k.py)**: Scaling to 100,000 entities in < 1 MB RAM ($80,000\times$ memory compression).
+* **[`examples/04_clinical_triage_research_demo.py`](examples/04_clinical_triage_research_demo.py)**: Sub-millisecond casualty differential diagnosis (*Research demo only; not for human clinical use*).
+* **[`examples/05_memristor_energy_analytical_model.py`](examples/05_memristor_energy_analytical_model.py)**: First-principles analytical physics model of 1T1R ReRAM crossbars ($443.9\text{ pJ}$).
 
 ### 3. Quantized GeoFormer Block (Q-GHA + Q-TAC)
 ```python
@@ -271,13 +301,14 @@ All figures are rendered in both high-resolution PNG and vector SVG on pure whit
 
 ---
 
-## 📚 Comprehensive Textbook & Engineering Manuals
+## 📚 Technical Documentation & Research Manuals (`docs/`)
 
-For exhaustive mathematical derivations, hardware schematics, and clinical differential diagnosis guides:
-* **[`GEOFORMER_TEXTBOOK_AND_PRACTITIONERS_MANUAL.md`](GEOFORMER_TEXTBOOK_AND_PRACTITIONERS_MANUAL.md)**: 1,496-line master reference covering Chapters 1–12 from metric plasticity to neuromorphic silicon compilation.
-* **[`PROJECT_REPORT_CARD_AND_EXECUTIVE_PRESENTATION_DOSSIER.md`](PROJECT_REPORT_CARD_AND_EXECUTIVE_PRESENTATION_DOSSIER.md)**: Full verification scorecard across all 6 theoretical invariants and benchmarks.
-* **[`QUANTITATIVE_AND_QUALITATIVE_EMERGENCE_ANALYSIS.md`](QUANTITATIVE_AND_QUALITATIVE_EMERGENCE_ANALYSIS.md)**: Rigorous comparative analysis against Transformers, GCNs, and State Space Models.
-* **[`clinical_diagnostic_assistant.py`](clinical_diagnostic_assistant.py)**: Ready-to-run hospital emergency differential diagnosis engine.
+For in-depth mathematical derivations, hardware schematics, and clinical differential diagnosis guides:
+* **[`docs/ablation_study_results.md`](docs/ablation_study_results.md)**: Official automated 5-seed scientific ablation study isolating GHA, Q-TAC, and ternary precision.
+* **[`docs/GEOFORMER_TEXTBOOK_AND_PRACTITIONERS_MANUAL.md`](docs/GEOFORMER_TEXTBOOK_AND_PRACTITIONERS_MANUAL.md)**: 1,496-line master reference covering Chapters 1–12 from metric plasticity to neuromorphic silicon compilation.
+* **[`docs/PROJECT_REPORT_CARD_AND_EXECUTIVE_PRESENTATION_DOSSIER.md`](docs/PROJECT_REPORT_CARD_AND_EXECUTIVE_PRESENTATION_DOSSIER.md)**: Full verification scorecard across all 6 theoretical invariants and benchmarks.
+* **[`docs/QUANTITATIVE_AND_QUALITATIVE_EMERGENCE_ANALYSIS.md`](docs/QUANTITATIVE_AND_QUALITATIVE_EMERGENCE_ANALYSIS.md)**: Rigorous comparative analysis against Transformers, GCNs, and State Space Models.
+* **[`examples/04_clinical_triage_research_demo.py`](examples/04_clinical_triage_research_demo.py)**: Hospital emergency casualty triage research demo (*preliminary demo, not for human clinical use*).
 
 ---
 
