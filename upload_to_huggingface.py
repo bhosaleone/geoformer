@@ -301,29 +301,38 @@ Dual-licensed under the **GNU Affero General Public License v3.0 (AGPLv3)** for 
 def main():
     token = os.environ.get("HF_TOKEN")
     if not token:
-        print("Error: HF_TOKEN environment variable not set.")
+        try:
+            import huggingface_hub
+            token = huggingface_hub.get_token()
+        except Exception:
+            token = None
+
+    if not token:
+        print("Error: HF_TOKEN not found.")
+        print("Please run:")
+        print("  export HF_TOKEN=\"hf_...\"")
+        print("  python3 upload_to_huggingface.py")
+        print("\nAlternatively, copy the contents of docs/HUGGINGFACE_README.md and paste it into:")
+        print("  https://huggingface.co/SetMD/geoformer/edit/main/README.md")
         sys.exit(1)
 
     api = HfApi(token=token)
     user_info = api.whoami()
     print(f"Authenticated as Hugging Face User: {user_info['name']} ({user_info.get('fullname', '')})")
 
-    # Write and upload polished README.md
-    print(f"\n[1/1] Uploading Polished Model Card to {HF_REPO_ID}...")
-    temp_readme = "checkpoints/POLISHED_HF_README.md"
-    with open(temp_readme, "w") as f:
-        f.write(POLISHED_MODEL_CARD)
+    readme_path = os.path.join(os.path.dirname(__file__), "docs", "HUGGINGFACE_README.md")
+    if not os.path.exists(readme_path):
+        print(f"Error: {readme_path} not found.")
+        sys.exit(1)
 
+    print(f"\n[1/1] Uploading Polished Model Card from {readme_path} to {HF_REPO_ID}...")
     upload_file(
-        path_or_fileobj=temp_readme,
+        path_or_fileobj=readme_path,
         path_in_repo="README.md",
         repo_id=HF_REPO_ID,
         token=token,
-        commit_message="docs: polish Hugging Face presence with full cross-links, runnable examples, and clinical engine"
+        commit_message="docs: add valid Hugging Face YAML metadata, Zenodo DOI badge, and AGPLv3 dual-license"
     )
-
-    if os.path.exists(temp_readme):
-        os.remove(temp_readme)
 
     print(f"✅ Hugging Face Model Card successfully updated and polished!")
     print(f"🔗 View Live: https://huggingface.co/{HF_REPO_ID}")
@@ -331,3 +340,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
