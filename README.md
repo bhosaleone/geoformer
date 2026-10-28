@@ -13,6 +13,7 @@
 > **Author:** Shrikant Bhosale (Atmabhan Pandit)  
 > *MBBS Student, Government Medical College (GMC), Sambhajinagar, Maharashtra, India*  
 > *Organization:* **SetMD** │ **TWIST POOL Labs** │ **ISL Research** │ **NanoCERN Unit**  
+> *Academic Technical Report:* [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md) │ *Ablation Study:* [docs/ablation_study_results.md](docs/ablation_study_results.md)  
 > *Website & Blog:* [praman.blog](https://praman.blog) │ *Official Monograph Essay:* [Praman Dispatches](https://praman.blog/geoformer-propagation-geometry-neuromorphic-foundation-model/)  
 > *Hugging Face Hub:* [SetMD/geoformer](https://huggingface.co/SetMD/geoformer) │ *Sister Architecture:* [bhosaleone/TAC](https://github.com/bhosaleone/TAC)  
 > *Kaggle:* [@shrikantbhosale786](https://www.kaggle.com/shrikantbhosale786) │ *Paper Track:* [ARC Prize 2026 Writeup](https://www.kaggle.com/competitions/arc-prize-2026-paper-track/writeups/new-writeup-1792900209877)
@@ -304,6 +305,7 @@ All figures are rendered in both high-resolution PNG and vector SVG on pure whit
 ## 📚 Technical Documentation & Research Manuals (`docs/`)
 
 For in-depth mathematical derivations, hardware schematics, and clinical differential diagnosis guides:
+* **[`docs/TECHNICAL_REPORT.md`](docs/TECHNICAL_REPORT.md)**: Master 8-page academic technical report covering mathematical architecture, Z3 formal verification, multi-hop transitive benchmarks, and sub-nanojoule memristor compilation.
 * **[`docs/ablation_study_results.md`](docs/ablation_study_results.md)**: Official automated 5-seed scientific ablation study isolating GHA, Q-TAC, and ternary precision.
 * **[`docs/GEOFORMER_TEXTBOOK_AND_PRACTITIONERS_MANUAL.md`](docs/GEOFORMER_TEXTBOOK_AND_PRACTITIONERS_MANUAL.md)**: 1,496-line master reference covering Chapters 1–12 from metric plasticity to neuromorphic silicon compilation.
 * **[`docs/PROJECT_REPORT_CARD_AND_EXECUTIVE_PRESENTATION_DOSSIER.md`](docs/PROJECT_REPORT_CARD_AND_EXECUTIVE_PRESENTATION_DOSSIER.md)**: Full verification scorecard across all 6 theoretical invariants and benchmarks.
