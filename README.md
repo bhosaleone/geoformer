@@ -15,7 +15,7 @@
 > *MBBS Student, Government Medical College (GMC), Sambhajinagar, Maharashtra, India*  
 > *Organization:* **SetMD** │ **TWIST POOL Labs** │ **ISL Research** │ **NanoCERN Unit**  
 > *Zenodo Official Publication:* [doi:10.5281/zenodo.23730305](https://doi.org/10.5281/zenodo.23730305) │ *PDF:* [docs/GeoFormer_Technical_Report.pdf](docs/GeoFormer_Technical_Report.pdf)  
-> *Academic Technical Report:* [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md) │ *Ablation Study:* [docs/ablation_study_results.md](docs/ablation_study_results.md)  
+> *Academic Technical Report:* [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md) │ *MCU Hardware Audit (Uno @ 16 MHz):* [docs/ARDUINO_UNO_MCU_BENCHMARK_REPORT.md](docs/ARDUINO_UNO_MCU_BENCHMARK_REPORT.md) │ *Ablation:* [docs/ablation_study_results.md](docs/ablation_study_results.md)  
 > *Website & Blog:* [praman.blog](https://praman.blog) │ *Official Monograph Essay:* [Praman Dispatches](https://praman.blog/geoformer-propagation-geometry-neuromorphic-foundation-model/)  
 > *Hugging Face Hub:* [SetMD/geoformer](https://huggingface.co/SetMD/geoformer) │ *Sister Architecture:* [bhosaleone/TAC](https://github.com/bhosaleone/TAC)  
 > *Kaggle:* [@shrikantbhosale786](https://www.kaggle.com/shrikantbhosale786) │ *Paper Track:* [ARC Prize 2026 Writeup](https://www.kaggle.com/competitions/arc-prize-2026-paper-track/writeups/new-writeup-1792900209877)
