@@ -22,6 +22,7 @@ from .layers.attention import QuantizedGHA
 from .layers.tac import QuantizedTAC
 
 # 4. Neural Network Models
+from .models.geoformer import GeoFormer, GeoFormerBlock
 from .models.block import QGeoFormerBlock, RMSNorm
 from .models.relational import RelationalQGeoFormer
 from .models.transitive import DeepTransitiveModel
@@ -36,6 +37,8 @@ from .optim.kramers import DualPathKramersOptimizer
 
 __all__ = [
     "__version__",
+    "GeoFormer",
+    "GeoFormerBlock",
     "RoundSTE",
     "SignSTE",
     "AbsMaxQuantizer",

@@ -9,8 +9,10 @@
 ========================================================================================================
  Author: Shrikant Bhosale (Atmabhan Pandit)
  MBBS Student, Government Medical College (GMC), Sambhajinagar, Maharashtra, India
- Kaggle: @shrikantbhosale786 | Lab: TWIST POOL Labs / ISL Research / NanoCERN Unit
- License: Open Access Community Edition (Dual MIT + CC BY 4.0)
+ Organization: SetMD | TWIST POOL Labs / ISL Research / NanoCERN Unit
+ Hugging Face Hub: https://huggingface.co/SetMD/geoformer
+ GitHub Repository: https://github.com/bhosaleone/geoformer | Sister Repo: https://github.com/bhosaleone/TAC
+ Kaggle: @shrikantbhosale786 | License: Dual MIT + CC BY 4.0
 ========================================================================================================
 ```
 

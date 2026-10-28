@@ -34,9 +34,14 @@ class S5CayleyProjector(nn.Module):
 
     def _init_orthogonal_irreps(self):
         with torch.no_grad():
-            Q, _ = torch.linalg.qr(torch.randn(self.d_model, self.total_irrep_dim))
-            self.proj_in.weight.copy_(Q.t()[:self.total_irrep_dim, :])
-            self.proj_out.weight.copy_(Q[:, :self.total_irrep_dim])
+            if self.d_model >= self.total_irrep_dim:
+                Q, _ = torch.linalg.qr(torch.randn(self.d_model, self.total_irrep_dim))
+                self.proj_in.weight.copy_(Q.t()[:self.total_irrep_dim, :])
+                self.proj_out.weight.copy_(Q[:, :self.total_irrep_dim])
+            else:
+                Q, _ = torch.linalg.qr(torch.randn(self.total_irrep_dim, self.total_irrep_dim))
+                self.proj_in.weight.copy_(Q[:self.total_irrep_dim, :self.d_model])
+                self.proj_out.weight.copy_(Q.t()[:self.d_model, :self.total_irrep_dim])
 
     def compute_irrep_energies(self, h):
         """Projects activations into irrep subspaces and returns energy distribution."""
