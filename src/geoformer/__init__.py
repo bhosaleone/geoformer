@@ -35,6 +35,22 @@ from .hardware.energy import NanojouleEnergyAuditor
 # 6. Optimization
 from .optim.kramers import DualPathKramersOptimizer
 
+# 7. Autonomous Endogenous Dynamics & Schedulers
+from .autonomous.schedules import (
+    continued_fraction_convergents,
+    fibonacci_schedule,
+    make_relaxation_schedule,
+)
+from .autonomous.encodings import (
+    quasi_crystalline_encoding,
+    encoding_collision_rate,
+)
+from .autonomous.endogenous_engine import (
+    ConsolidationConfig,
+    ConsolidationReport,
+    EndogenousConsolidator,
+)
+
 __all__ = [
     "__version__",
     "GeoFormer",
@@ -58,4 +74,13 @@ __all__ = [
     "NeuromorphicQGeoFormer",
     "NanojouleEnergyAuditor",
     "DualPathKramersOptimizer",
+    "continued_fraction_convergents",
+    "fibonacci_schedule",
+    "make_relaxation_schedule",
+    "quasi_crystalline_encoding",
+    "encoding_collision_rate",
+    "ConsolidationConfig",
+    "ConsolidationReport",
+    "EndogenousConsolidator",
 ]
+

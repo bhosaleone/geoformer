@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://huggingface.co/SetMD/geoformer"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model%20Hub%20Weights-yellow.svg?style=for-the-badge&logo=huggingface" alt="Hugging Face Models"></a>
   <a href="https://github.com/bhosaleone/geoformer/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg?style=for-the-badge" alt="CI"></a>
-  <a href="https://pytest.org/"><img src="https://img.shields.io/badge/PyTest-23%2F23%20Passing%20(100%25)-success.svg?style=for-the-badge" alt="PyTest"></a>
+  <a href="https://pytest.org/"><img src="https://img.shields.io/badge/PyTest-37%2F37%20Passing%20(100%25)-success.svg?style=for-the-badge" alt="PyTest"></a>
   <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg?style=for-the-badge&logo=pytorch" alt="PyTorch 2.0+"></a>
   <a href="https://github.com/Z3Prover/z3"><img src="https://img.shields.io/badge/Microsoft%20Z3-6%2F6%20UNSAT%20Verified-brightgreen.svg?style=for-the-badge" alt="Z3 Prover"></a>
   <a href="https://github.com/bhosaleone/TAC"><img src="https://img.shields.io/badge/Sister%20Repo-bhosaleone%2FTAC-blueviolet.svg?style=for-the-badge" alt="Sister Repo: TAC"></a>
@@ -212,10 +212,10 @@ cd geoformer
 pip install -e .
 ```
 
-### Running the PyTest Suite (100% Pass Rate across 23 Unit Tests)
+### Running the PyTest Suite (100% Pass Rate across 37 Unit Tests)
 ```bash
 python3 -m pytest tests/ -v
-# ============================== 23 passed in 1.70s ==============================
+# ============================== 37 passed in 5.28s ==============================
 ```
 
 ### 1. GeoFormer Foundation Neural Network
@@ -261,6 +261,9 @@ Run any minimal example directly from your terminal:
 * **[`examples/03_sparse_memory_scaling_100k.py`](examples/03_sparse_memory_scaling_100k.py)**: Scaling to 100,000 entities in < 1 MB RAM ($80,000\times$ memory compression).
 * **[`examples/04_clinical_triage_research_demo.py`](examples/04_clinical_triage_research_demo.py)**: Sub-millisecond casualty differential diagnosis (*Research demo only; not for human clinical use*).
 * **[`examples/05_memristor_energy_analytical_model.py`](examples/05_memristor_energy_analytical_model.py)**: First-principles analytical physics model of 1T1R ReRAM crossbars ($443.9\text{ pJ}$).
+* **[`examples/07_multiscale_qtac_ablation.py`](examples/07_multiscale_qtac_ablation.py)**: Multi-scale Diophantine Continued Fraction and Fibonacci Q-TAC relaxation ablation.
+* **[`examples/08_quasi_encoding_ablation.py`](examples/08_quasi_encoding_ablation.py)**: Quasi-crystalline (cut-and-project) positional encodings with $0.000\%$ collision rate.
+* **[`examples/09_idle_consolidation.py`](examples/09_idle_consolidation.py)**: Bounded endogenous consolidator during autonomous idle cycles ($|\Delta W| \le 0.01$, $W \ge 0$).
 
 ### 3. Quantized GeoFormer Block (Q-GHA + Q-TAC)
 ```python

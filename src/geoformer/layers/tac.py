@@ -14,23 +14,29 @@ class QuantizedTAC(nn.Module):
     Thermodynamic Attractor Convergence loop operating over discrete graph Laplacians
     and S5 symmetric invariant projections.
     """
-    def __init__(self, d_model=32, tau_max=4, delta_tau=0.1, lambda_dir=0.05, lambda_s5=0.05):
+    def __init__(self, d_model=32, tau_max=4, delta_tau=0.1, lambda_dir=0.05, lambda_s5=0.05, schedule=None):
         super().__init__()
         self.d_model = d_model
         self.tau_max = tau_max
         self.delta_tau = delta_tau
         self.lambda_dir = lambda_dir
         self.lambda_s5 = lambda_s5
+        self.schedule = schedule
         
         self.s5_projector = S5CayleyProjector(d_model=d_model)
 
-    def forward(self, h_init, L_matrix):
+    def forward(self, h_init, L_matrix, schedule=None):
         """
         Relaxes h_init to attractor h* via Euler steps:
           h_{tau+1} = h_tau - delta_tau * [ (h_tau - h_init) + lambda_dir * (L h_tau) + lambda_s5 * (h_tau - P_S5(h_tau)) ]
+        Supports optional multi-scale schedule (e.g. Fibonacci [1, 2, 3, 5, 8, 13]).
         """
         B, N, D = h_init.shape
         h = h_init.clone()
+        
+        # Determine relaxation budget
+        active_schedule = schedule if schedule is not None else self.schedule
+        max_steps = active_schedule[-1] if active_schedule is not None and len(active_schedule) > 0 else self.tau_max
         
         # Ensure L is [N, N]
         L = L_matrix[:N, :N]
@@ -38,7 +44,7 @@ class QuantizedTAC(nn.Module):
         final_K_S = torch.tensor(0.0, device=h.device)
         actual_tau = 0
         
-        for step in range(self.tau_max):
+        for step in range(max_steps):
             actual_tau += 1
             # 1. Metric Dirichlet energy gradient: L @ h
             grad_dirichlet = torch.matmul(L.unsqueeze(0), h)

@@ -44,17 +44,19 @@ class GeoFormerBlock(nn.Module):
         tau_max: int = 3,
         lambda_geo: float = 0.1,
         lambda_dir: float = 0.05,
-        dropout: float = 0.1
+        dropout: float = 0.1,
+        schedule: Optional[list] = None
     ):
         super().__init__()
         self.d_model = d_model
+        self.schedule = schedule
         self.norm1 = RMSNorm(d_model)
         self.attn = QuantizedGHA(d_model=d_model, n_heads=n_heads, mode=mode, lambda_geo=lambda_geo)
         
         self.norm2 = RMSNorm(d_model)
         self.ffn = TernarySwiGLU(d_model=d_model, mode=mode)
         
-        self.tac = QuantizedTAC(d_model=d_model, tau_max=tau_max, lambda_dir=lambda_dir)
+        self.tac = QuantizedTAC(d_model=d_model, tau_max=tau_max, lambda_dir=lambda_dir, schedule=schedule)
         self.dropout = nn.Dropout(dropout)
 
     def forward(
@@ -98,7 +100,9 @@ class GeoFormer(nn.Module):
         tau_max: int = 3,
         lambda_geo: float = 0.1,
         lambda_dir: float = 0.05,
-        dropout: float = 0.1
+        dropout: float = 0.1,
+        node_encoding: str = "learned",       # "learned" | "quasi"
+        schedule: Optional[list] = None
     ):
         super().__init__()
         self.d_model = d_model
@@ -106,13 +110,23 @@ class GeoFormer(nn.Module):
         self.in_features = in_features
         self.num_classes = num_classes
         self.mode = mode
+        self.node_encoding = node_encoding.lower()
+        self.schedule = schedule
 
         # Input Embedding: Token embedding or Linear feature projection
         if vocab_size is not None:
             self.tok_emb = nn.Embedding(vocab_size, d_model)
-            self.pos_emb = nn.Embedding(max_seq_len, d_model)
+            if self.node_encoding == "quasi":
+                from ..autonomous.encodings import quasi_crystalline_encoding
+                self.register_buffer("pos_emb_fixed", quasi_crystalline_encoding(max_seq_len, d_model, basis="golden"))
+                self.pos_emb = None
+            else:
+                self.pos_emb = nn.Embedding(max_seq_len, d_model)
+                self.pos_emb_fixed = None
         elif in_features is not None:
             self.in_proj = QuantizedLinear(in_features, d_model, mode=mode)
+            self.pos_emb = None
+            self.pos_emb_fixed = None
         else:
             raise ValueError("Must provide either vocab_size (for discrete tokens) or in_features (for vectors).")
 
@@ -125,7 +139,8 @@ class GeoFormer(nn.Module):
                 tau_max=tau_max,
                 lambda_geo=lambda_geo,
                 lambda_dir=lambda_dir,
-                dropout=dropout
+                dropout=dropout,
+                schedule=schedule
             )
             for _ in range(n_layers)
         ])
@@ -150,8 +165,12 @@ class GeoFormer(nn.Module):
         # 1. Project input to latent d_model dimension
         if self.vocab_size is not None and x.dtype in (torch.long, torch.int64):
             B, S = x.shape
-            positions = torch.arange(S, device=x.device).unsqueeze(0).expand(B, S)
-            h = self.tok_emb(x) + self.pos_emb(positions)
+            if self.node_encoding == "quasi":
+                pos_feat = self.pos_emb_fixed[:S].unsqueeze(0).expand(B, S, -1)
+                h = self.tok_emb(x) + pos_feat
+            else:
+                positions = torch.arange(S, device=x.device).unsqueeze(0).expand(B, S)
+                h = self.tok_emb(x) + self.pos_emb(positions)
         else:
             if x.dim() == 2:
                 # [B, in_features] -> [B, 1, d_model]
